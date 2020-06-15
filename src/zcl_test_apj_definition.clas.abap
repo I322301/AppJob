@@ -1,4 +1,4 @@
-CLASS zcl_test_apj_simple DEFINITION
+CLASS zcl_test_apj_definition DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
@@ -11,7 +11,7 @@ CLASS zcl_test_apj_simple DEFINITION
 ENDCLASS.
 
 
-CLASS zcl_test_apj_simple IMPLEMENTATION.
+CLASS zcl_test_apj_definition IMPLEMENTATION.
 
   METHOD if_apj_dt_exec_object~get_parameters.
 
