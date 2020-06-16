@@ -68,22 +68,17 @@ CLASS zcl_test_apj_definition IMPLEMENTATION.
     " Implement the job execution
         data(lo_mail) = cl_bcs_mail_message=>create_instance( ).
 *        lo_mail->add_attachment( cl_bcs_mail_textpart=>create_instance(
-*          iv_content      = |This is your bonus: { i_bonus_calculation-ActualRevenueAmount_V } { i_bonus_calculation-ActualRevenueAmount_C }|
+*          iv_content      = |<p>Sample</p>|
 *          iv_content_type = 'text/plain'
 *          iv_filename     = 'Text_Attachment.txt'
 *        ) ).
-*    DATA(lv_sender) = iv_sender.
-*    lo_mail->set_sender( CONV #( lv_sender ) ).
             lo_mail->set_sender( 'noreply+itapc@sap.com' ).
 
 
-*        LOOP AT it_receivers INTO DATA(lv_email_address).
 
           lo_mail->add_recipient( 'mani.p.s@sap.com' ).
 *          lo_mail->add_recipient( 'sachin.b@sap.com' ).
-*          lo_mail->add_recipient( 'ingo.braeuninger@sap.com' ).
 
-*        ENDLOOP.
 
         lo_mail->set_subject( 'Test application job' ).
 
@@ -94,7 +89,6 @@ CLASS zcl_test_apj_definition IMPLEMENTATION.
         lo_mail->send( IMPORTING et_status = DATA(lt_status) ).
       CATCH cx_bcs_mail INTO DATA(lx_mailer).
         DATA(lx_mailer_data) = lx_mailer->get_longtext( ).
-*        rv_success = abap_false.
     ENDTRY.
 
   ENDMETHOD.
