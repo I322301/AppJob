@@ -1,4 +1,4 @@
-CLASS zcl_test_apj_simple_obj_gen DEFINITION
+CLASS zcl_test_apj_templ_generator DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
@@ -10,19 +10,20 @@ CLASS zcl_test_apj_simple_obj_gen DEFINITION
 ENDCLASS.
 
 
-CLASS zcl_test_apj_simple_obj_gen IMPLEMENTATION.
+CLASS zcl_test_apj_templ_generator IMPLEMENTATION.
 
   METHOD if_oo_adt_classrun~main.
 
-    CONSTANTS lc_catalog_name      TYPE cl_apj_dt_create_content=>ty_catalog_name  VALUE 'ZTEST_MY_SIMPLE_JOB'.
-    CONSTANTS lc_catalog_text      TYPE cl_apj_dt_create_content=>ty_text          VALUE 'My first simple application job'.
-    CONSTANTS lc_class_name        TYPE cl_apj_dt_create_content=>ty_class_name    VALUE 'ZCL_TEST_APJ_SIMPLE'.
+    CONSTANTS lc_catalog_name      TYPE cl_apj_dt_create_content=>ty_catalog_name  VALUE 'ZTEST_CATALOG'.
+    CONSTANTS lc_catalog_text      TYPE cl_apj_dt_create_content=>ty_text          VALUE 'Simple catalog'.
+    CONSTANTS lc_class_name        TYPE cl_apj_dt_create_content=>ty_class_name    VALUE 'ZCL_TEST_APJ_MAILER'.
 
-    CONSTANTS lc_template_name     TYPE cl_apj_dt_create_content=>ty_template_name VALUE 'ZTEST_MY_EMAIL_EXP'.
-    CONSTANTS lc_template_text     TYPE cl_apj_dt_create_content=>ty_text          VALUE 'Test Email Exception'.
+    CONSTANTS lc_template_name     TYPE cl_apj_dt_create_content=>ty_template_name VALUE 'ZTEST_MAIL_TEMPL_6'.
+    CONSTANTS lc_template_text     TYPE cl_apj_dt_create_content=>ty_text          VALUE 'Template for mail testing_6'.
 
     CONSTANTS lc_transport_request TYPE cl_apj_dt_create_content=>ty_transport_request VALUE 'X08K900084'.
-    CONSTANTS lc_package           TYPE cl_apj_dt_create_content=>ty_package           VALUE 'Z_TEST_APPLICATION_JOBS'.
+*  CONSTANTS lc_transport_request TYPE cl_apj_dt_create_content=>ty_transport_request VALUE 'X08K911111'.
+    CONSTANTS lc_package           TYPE cl_apj_dt_create_content=>ty_package           VALUE 'ZTEST_APPLICATION_JOBS'.
 
     DATA(lo_dt) = cl_apj_dt_create_content=>get_instance( ).
 
